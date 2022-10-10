@@ -12,7 +12,7 @@ class StockListing(BaseModel):
 
 
 
-class StockData(BaseModel):
+class StockData(StockListing):
     high : float
     low : float
     opening_price : float

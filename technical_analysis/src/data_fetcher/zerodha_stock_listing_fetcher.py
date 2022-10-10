@@ -2,7 +2,13 @@
 from __future__ import annotations
 from typing import *
 
-from technical_analysis.src.ta_defs import StockListing
+import asyncio
+import aiohttp
 
-class Temp:
-    a = "as"
+from technical_analysis.src.ta_defs import StockListing
+from technical_analysis.src.data_fetcher.zerodha_endpoints import ZerodhaEndpoint
+
+
+async def get_stock_listing_data(exchange : str) -> AsyncIterator[StockListing]:
+    pass
+
