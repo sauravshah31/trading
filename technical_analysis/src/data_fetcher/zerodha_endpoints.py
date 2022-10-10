@@ -7,5 +7,5 @@ from pydantic import BaseModel
 from common.constraint import ConstraintDefinition
 
 
-class ZerodhaEndpoint(ConstraintDefinition, BaseModel):
+class ZerodhaEndpoint(ConstraintDefinition):
     STOCK_LISTING_BROWSER : str = ""

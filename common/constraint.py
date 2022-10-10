@@ -7,4 +7,4 @@ from typing import *
 class ConstraintDefinition:
     def __init__(self) -> None:
         raise NotImplementedError(
-            "Instance of Definitions must not be instantiated")
+            "Class of type ConstraintDefinition must not be instantiated")
