@@ -8,3 +8,7 @@ class ConstraintDefinition:
     def __init__(self) -> None:
         raise NotImplementedError(
             "Class of type ConstraintDefinition must not be instantiated")
+    
+    def __call__(self, *args: Any, **kwds: Any) -> Any:
+        raise NotImplementedError(
+            "Class of type ConstraintDefinition must not be instantiated")
