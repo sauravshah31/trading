@@ -7,7 +7,7 @@ import requests
 import pdb
 
 def main():
-    data = requests.get("https://kite.zerodha.com/static/js/chunk-2d22c101.4f927a35.js").text
+    data = requests.get("https://kite.zerodha.com/static/js/chunk-2d22c101.6fbdfb55.js").text
     jsonind = data.find("JSON.parse(") + len("JSON.parse(")
     jsondata = data[jsonind:]
     ind = 1
@@ -18,10 +18,21 @@ def main():
         ind += 1
     jsondata = jsondata[1: ind]
     jsondict = json.loads(jsondata)
-    with open ("./technical_analysis/data/zerodha-listings.json","w") as f:
+    with open("./data/zerodha-listings.json","w") as f:
         data = json.dumps(jsondict)
         f.write(data)
-    pdb.set_trace()
+        
+    toparse = []
+    toparse.append((jsondict,"root"))
+    while len(toparse) != 0:
+        currdict,fname = toparse[0]
+        if type(currdict) == dict:
+            for key in currdict.keys():
+                toparse.append((currdict[key], f"{fname}.{key}"))
+        else:
+            with open(f"./data/{fname}.json", "w") as f:
+                f.write(json.dumps(currdict))
+        toparse = toparse[1:]
 
 
 main()

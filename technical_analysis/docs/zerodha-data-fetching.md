@@ -9,3 +9,4 @@
 * GET : https://kite.zerodha.com/static/js/chunk-2d22c101.4f927a35.js -> lising in js data structure
     * ["instruments"]["NSE"]
     * ["instruments"]["BSE"]
+* GET : https://api.kite.trade/instruments -> listings (Token not required) : csv data

@@ -143,4 +143,4 @@ dmypy.json
 *.vsix
 
 # Data
-technical_analysis/data/
+data/
