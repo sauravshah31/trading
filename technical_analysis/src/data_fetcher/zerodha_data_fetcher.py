@@ -42,9 +42,9 @@ async def get_stock_listing_data(connector : HTTPConnector, force = False) -> Li
         except:
             to_download = True
     if (True == to_download):
-        await connector.http_chunked_downloader(False, fpath)
+        await connector.http_chunked_downloader(False, fpath, 'GET', ZerodhaEndpoint.STOCK_LISTING_API)
     
-    with open(fpath, "rb", newline='') as f:
+    with open(fpath, "r", newline='') as f:
         csvreader = csv.reader(f, delimiter=',')
         next(csvreader, None)
         for row in csvreader:
@@ -57,4 +57,4 @@ async def get_stock_listing_data(connector : HTTPConnector, force = False) -> Li
                                         exchange=row[11])
             data.append(listing)
     #@todo: range return is better?
-    return listing
+    return data
